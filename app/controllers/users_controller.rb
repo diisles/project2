@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+
   def index
     @users = User.all
   end
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update_attributes(bean_params)
+    if @user.update_attributes(user_params)
      redirect_to :users
     else
      render :edit

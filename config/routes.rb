@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'welcome#index'
   devise_for :users
 
   resources :users do
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
       resources :replies
     end
   end
-  
+
 
   # get "users/" => "users#index"
   # get "users/new" => "users#new", as: :new_user

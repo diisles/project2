@@ -9,14 +9,19 @@ class RepliesController < ApplicationController
   end
 
   def new
-  @reply = Reply.new
+    @user = current_user
+    @post = Post.find(params[:post_id])
+    @reply = @post.replies.new
   end
 
   def create
-    @reply = Reply.new(reply_params)
+    @user = current_user
+    @post = Post.find(params[:post_id])
+    @reply = @post.replies.new(reply_params)
+    @reply.user = @user
 
     if @reply.save
-      redirect_to :replies
+      redirect_to user_posts_path(@user)
     else
       render :new
     end
@@ -43,7 +48,7 @@ class RepliesController < ApplicationController
   end
   private
   def reply_params
-    params.require(:user).permit(:content, :img, :user_id, :post_id)
+    params.require(:reply).permit(:content, :img, :user_id, :post_id)
   end
 
 

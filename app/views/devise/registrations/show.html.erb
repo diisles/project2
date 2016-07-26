@@ -1,3 +1,8 @@
+
+
+
+
+
 <h1> <%= @user.name %> </h1>
 <p> <%= @user.location %> - <%= @user.school %></p>
 
@@ -5,9 +10,9 @@
 
 
 <ul>
-  <% Post.where(:school => 'SMC').each do |post| %>
+  <% Post.where(:school == 'SMC').each do |post| %>
     <li>
-      <strong><%= post.user.name %>:</strong> <%= post.title %> <%= link_to '| show this post', edit_post_path if post.user == current_user %> <%= link_to '| delete this post', post, method: :delete, data: {confirm: 'Are you sure?'} if post.user == current_user %>
+      <strong><%= post.user.name %>:</strong> <%= post.title %> <%= link_to '| show this post', edit_user_post_path if post.user == current_user %> <%= link_to '| delete this post', post, method: :delete, data: {confirm: 'Are you sure?'} if post.user == current_user %>
     </li>
 
     <!-- <%= render 'partials/form_reply', :post => post %> -->

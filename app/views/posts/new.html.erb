@@ -1,1 +1,38 @@
-hi there
+
+<h1>Post your Problem!</h1>
+
+<%= form_for [current_user, @post] do |f| %>
+
+    <div>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+    </div>
+
+    <div>
+        <%= f.label :description %><br>
+        <%= f.text_field :description %>
+    </div>
+
+    <div>
+        <%= f.label :location %><br>
+        <%= f.text_field :location %>
+    </div>
+
+    <div>
+        <%= f.label :help_time %><br>
+        <%= f.text_field :help_time %>
+    </div>
+    <div>
+        <%= f.label :img %><br>
+        <%= f.text_field :img %>
+    </div>
+    <div>
+        <%= f.hidden_field :user_id %>
+    </div>
+
+
+    <%= f.submit "New Post!" %>
+
+<% end %>
+
+<%#= link_to "Back to the Help list!", post_path %>

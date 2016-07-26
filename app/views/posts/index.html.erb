@@ -1,0 +1,13 @@
+
+<ul>
+    <% @posts.each do |post| %>
+      <li>
+        <strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
+
+        <strong>replies:</strong>  <%= post.replies.count %><br>
+
+        <%= link_to "More Info", user_post_path(@user, post) %><br>
+      </li>
+      <% end %>
+
+</ul>

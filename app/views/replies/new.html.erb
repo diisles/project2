@@ -1,0 +1,21 @@
+<h1>Become a Helper!</h1>
+
+<%= form_for [@user, @post, @reply] do |f| %>
+
+    <div>
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+    </div>
+
+    <div>
+        <%= f.label :img %>
+        <%= f.text_field :img %>
+    </div>
+
+
+
+    <%= f.submit  %>
+
+<% end %>
+
+<%= link_to "Back to the Help list!", user_posts_path(@user) %>

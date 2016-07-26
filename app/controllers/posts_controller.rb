@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_user
+  before_action :set_user, except: [:show]
 
   def index
     @posts = Post.all
@@ -7,31 +7,35 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   def new
-  @post = @user.posts.new
+    @user = current_user
+    @post = @user.posts.new
   end
 
   def create
+    @user = current_user
     @post = @user.posts.new(post_params)
+    @post.user_id = current_user.id
 
     if @post.save
-      redirect_to :posts
+      redirect_to user_posts_path(@user)
     else
       render :new
     end
   end
 
   def edit
-    @post = Post.find(params{:id})
+    @post = Post.find(params[:id])
   end
 
   def update
     @post = Post.find(params[:id])
 
-    if @post.update_attributes(posts_params)
-     redirect_to :posts
+    if @post.update_attributes(post_params)
+     redirect_to user_posts_path(current_user)
     else
      render :edit
     end
@@ -44,7 +48,7 @@ class PostsController < ApplicationController
   end
   private
   def post_params
-    params.require(:post).permit(:description, :location, :time, :img, :user_id)
+    params.require(:post).permit(:description, :title, :location, :help_time, :img, :user_id)
   end
 
   def set_user

@@ -1,5 +1,5 @@
 
-<ul>
+
     <%# @posts.each do |post| %>
       <!-- <li> -->
         <!-- <strong>Title</strong> <%#= post.title %>  - <strong> Description:</strong> <%#= post.description %> - <strong> Area:</strong> - <%#= post.location %> - <%#= post.help_time %> - <strong> Image of Problem: </strong> <%#= post.img %> - <strong> School: </strong> <%#= post.user.school %> <br> -->
@@ -9,60 +9,41 @@
         <%#= link_to "More Info", user_post_path(@user, post) %><br>
       <!-- </li> -->
     <%# end %>
-    <h2>Posts in your area</h2>
-
-    <% if @posts.where(location: @user.location).count == 0 %>
-      <h3>Be the first to post a Blocker in this area!</h3>
-    <% else %>
-      <% if (@user.location == "Santa Monica") %>
-        <% then @posts.each do |post| %>
-          <% if (post.location == "Santa Monica") %>
-            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-            </p>
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2>Posts in your area</h2>
+          <ul>
+          <% if @posts.where(location: @user.location).count == 0 %>
+            <h3>Be the first to post a Blocker in this area!</h3>
+          <% else %>
+            <% @posts.where(location: @user.location).each do |post| %>
+              <p><strong>Title</strong> : <%= post.title %>  -
+                <strong> Description:</strong>
+                <%= post.description %> -
+                <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> -
+                <strong> Image of Problem: </strong> <%= post.img %> -
+                <strong> School: </strong> <%= post.user.school %> <br>
+                <strong>replies:</strong>  <%= post.replies.count %><br>
+                <%= link_to "More Info", user_post_path(@user, post) %><br>
+              </p>
+            <% end %>
           <% end %>
-        <% end %>
-      <% end %>
-
-      <%if (@user.location == "Brentwood")  %>
-        <%then @posts.each do |post| %>
-          <% if (post.location = "Brentwood") %>
-            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-            </p>
-          <% end %>
-        <% end %>
-      <% end %>
-
-      <%if (@user.location == "West LA") %>
-        <% then @posts.each do |post| %>
-          <% if (post.location == "West LA") %>
-            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-            </p>
-          <% end %>
-        <%end %>
-      <% end %>
-
-      <%if (@user.location == "Venice")   %>
-        <% then @posts.each do |post| %>
-          <% if (post.location == "Venice") %>
-            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-            </p>
-          <% end %>
-        <%end %>
-      <% end %>
-
-      <%if (@user.location == "Pacific Palisades")   %>
-        <% then @posts.each do |post| %>
-          <% if (post.location == "Pacific Palisades") %>
-            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-            </p>
-          <% end %>
-        <%end %>
-      <% end %>
-    <% end %>
+        </ul>
+        </div>
+      </div>
+    </div>
 
 
-</ul>
+
+
+<div class="panel-primary">
+  <div class="panel-heading">
 <h2>Post a Blocker!</h2>
+</div>
+<div class="panel-body panel panel-default paddng">
+
+
 
 <%= form_for [current_user, Post.new] do |f| %>
 
@@ -105,6 +86,8 @@
     <div class="col-md-6 post_blocker_button">
      <%= button_to "Post this Blocker", new_user_session_path, method: :get, class: "btn btn-info" %>
     </div>
+  </div>
+</div>
     <!-- <%#= f.submit "New Post!" %> -->
 
 <% end %>

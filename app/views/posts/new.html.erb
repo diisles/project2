@@ -38,8 +38,10 @@
         <%= f.hidden_field :user_id %>
     </div>
 
-
-    <%= f.submit "New Post!" %>
+    <div class="col-md-6 post_blocker_button">
+     <%= button_to "Post this Blocker", new_user_session_path, method: :get, class: "btn btn-info" %>
+    </div>
+    <!-- <%#= f.submit "New Post!" %> -->
 
 <% end %>
 

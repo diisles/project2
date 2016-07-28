@@ -30,6 +30,9 @@
         <%= f.text_field :img %>
     </div>
 
-    <%= f.submit "Submit these changes!" %>
+    <div class="col-md-6 submit_edit_button">
+     <%= button_to "Submit these changes", new_user_session_path, method: :get, class: "btn btn-info" %>
+    </div>
+    <!-- <%#= f.submit "Submit these changes!" %> -->
 
 <% end %>

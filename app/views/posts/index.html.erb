@@ -11,49 +11,53 @@
     <%# end %>
     <h3>Posts in your area</h3>
 
-    <% if (@user.location == "Santa Monica") %>
-      <% then @posts.each do |post| %>
-        <% if (post.location == "Santa Monica") %>
-          <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-          </p>
+    <% if @posts.where(location: @user.location).count == 0 %>
+      <h1>There are no posts here yet!</h1>
+    <% else %>
+      <% if (@user.location == "Santa Monica") %>
+        <% then @posts.each do |post| %>
+          <% if (post.location == "Santa Monica") %>
+            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
+            </p>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
 
-    <%if (@user.location == "Brentwood")  %>
-      <%then @posts.each do |post| %>
-        <% if (post.location = "Brentwood") %>
-          <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-          </p>
+      <%if (@user.location == "Brentwood")  %>
+        <%then @posts.each do |post| %>
+          <% if (post.location = "Brentwood") %>
+            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
+            </p>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
 
-    <%if (@user.location == "West LA")   %>
-      <% then @posts.each do |post| %>
-        <% if (post.location == "West LA") %>
-          <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-          </p>
-        <% end %>
-      <%end %>
-    <% end %>
+      <%if (@user.location == "West LA") %>
+        <% then @posts.each do |post| %>
+          <% if (post.location == "West LA") %>
+            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
+            </p>
+          <% end %>
+        <%end %>
+      <% end %>
 
-    <%if (@user.location == "Venice")   %>
-      <% then @posts.each do |post| %>
-        <% if (post.location == "Venice") %>
-          <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-          </p>
-        <% end %>
-      <%end %>
-    <% end %>
+      <%if (@user.location == "Venice")   %>
+        <% then @posts.each do |post| %>
+          <% if (post.location == "Venice") %>
+            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
+            </p>
+          <% end %>
+        <%end %>
+      <% end %>
 
-    <%if (@user.location == "Pacific Palisades")   %>
-      <% then @posts.each do |post| %>
-        <% if (post.location == "Pacific Palisades") %>
-          <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
-          </p>
-        <% end %>
-      <%end %>
+      <%if (@user.location == "Pacific Palisades")   %>
+        <% then @posts.each do |post| %>
+          <% if (post.location == "Pacific Palisades") %>
+            <p><strong>Title</strong> <%= post.title %>  - <strong> Description:</strong> <%= post.description %> - <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> - <strong> Image of Problem: </strong> <%= post.img %> - <strong> School: </strong> <%= post.user.school %> <br>
+            </p>
+          <% end %>
+        <%end %>
+      <% end %>
     <% end %>
 
 
@@ -98,7 +102,9 @@
         <%= f.hidden_field :user_id %>
     </div>
 
-
-    <%= f.submit "New Post!" %>
+    <div class="col-md-6 post_blocker_button">
+     <%= button_to "Post this Blocker", new_user_session_path, method: :get, class: "btn btn-info" %>
+    </div>
+    <!-- <%#= f.submit "New Post!" %> -->
 
 <% end %>

@@ -13,9 +13,12 @@
     </div>
 
     <div>
-        <%= f.label :location %><br>
-        <%= f.text_field :location %>
+    <%= f.label :location %><br>
+    <%= f.select(:location, ["Santa Monica", "Brentwood", "West LA", "Venice", "Pacific Palisades"])  %>
+        <!-- <%#= f.label :location %><br>
+        <%#= f.text_field :location %> -->
     </div>
+    
 
     <div>
         <%= f.label :help_time %><br>

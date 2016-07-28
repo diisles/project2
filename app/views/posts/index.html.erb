@@ -9,6 +9,8 @@
         <%#= link_to "More Info", user_post_path(@user, post) %><br>
       <!-- </li> -->
     <%# end %>
+    <h3>Posts in your area</h3>
+
     <% if (@user.location == "Santa Monica") %>
       <% then @posts.each do |post| %>
         <% if (post.location == "Santa Monica") %>
@@ -56,3 +58,47 @@
 
 
 </ul>
+<h1>Post a Blocker!</h1>
+
+<%= form_for [current_user, Post.new] do |f| %>
+
+    <div>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+    </div>
+
+    <div>
+        <%= f.label :description %><br>
+        <%= f.text_field :description %>
+    </div>
+
+    <div>
+    <%= f.label :location %><br>
+    <%= f.select(:location, ["Santa Monica", "Brentwood", "West LA", "Venice", "Pacific Palisades"])  %>
+        <!-- <%#= f.label :location %><br>
+        <%#= f.text_field :location %> -->
+    </div>
+
+
+
+    <div>
+        <%= f.label :help_time %><br>
+        <%= f.text_field :help_time %>
+    </div>
+    <div>
+        <%= f.label :img %><br>
+        <%= f.text_field :img %>
+    </div>
+    <div>
+        <%= f.label :notes %><br>
+        <%= f.text_field :notes %>
+    </div>
+
+    <div>
+        <%= f.hidden_field :user_id %>
+    </div>
+
+
+    <%= f.submit "New Post!" %>
+
+<% end %>

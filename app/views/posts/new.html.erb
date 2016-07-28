@@ -1,5 +1,5 @@
 
-<h1>Post your Problem!</h1>
+<h3>Post a Blocker!</h3>
 
 <%= form_for [current_user, @post] do |f| %>
 
@@ -14,9 +14,12 @@
     </div>
 
     <div>
-        <%= f.label :location %><br>
-        <%= f.text_field :location %>
+    <%= f.label :location %><br>
+    <%= f.select(:location, ["Santa Monica", "Brentwood", "West LA", "Venice", "Pacific Palisades"])  %>
+        <!-- <%#= f.label :location %><br>
+        <%#= f.text_field :location %> -->
     </div>
+
 
     <div>
         <%= f.label :help_time %><br>
@@ -26,6 +29,11 @@
         <%= f.label :img %><br>
         <%= f.text_field :img %>
     </div>
+    <div>
+        <%= f.label :notes %><br>
+        <%= f.text_field :notes %>
+    </div>
+
     <div>
         <%= f.hidden_field :user_id %>
     </div>

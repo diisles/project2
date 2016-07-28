@@ -13,13 +13,16 @@
     </div>
 
     <div>
-        <%= f.label :location %>
-        <%= f.text_field :location %>
+    <%= f.label :location %><br>
+    <%= f.select(:location, ["Santa Monica", "Brentwood", "West LA", "Venice", "Pacific Palisades"])  %>
+        <!-- <%#= f.label :location %><br>
+        <%#= f.text_field :location %> -->
     </div>
-
     <div>
-        <%= f.label :school %>
-        <%= f.text_field :school %>
+    <%= f.label :school %><br>
+    <%= f.select(:school, ["General Assembly","Santa Monica High School", "New Roads High School", "Lincoln Middle School", "Crossroads School For Arts & Sciences","Roosevelt Elementary School","Brentwood School, East Campus","The Archer School for Girls","Paul Revere Charter Middle School","Brentwood School, West Campus","University High School","Venice High School","Palms Middle School"])  %>
+      <%#= f.label :school %><br>
+      <%#= f.text_field :school %>
     </div>
 
     <div>

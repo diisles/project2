@@ -8,7 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   <nav class="navbar navbar-light" style="background-color: #B9C3C5;">
-      <a class="navbar-brand" href="#">BLOCKERS</a>
+      <!-- <a class="navbar-brand" href="#">BLOCKERS</a> -->
+      <%= link_to "BLOCKERS", root_path, :class => "navbar-brand" %>
       <ul class="nav navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="#">Posts <span class="sr-only">(current)</span></a>
@@ -25,7 +26,7 @@
     <p align="right" id="user-nav">
   <% if user_signed_in? %>
     <span class="user_tag_color"> User:</span> <strong id="username"><%= current_user.name %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+    <%= link_to 'Edit profile', edit_user_path(current_user), :class => 'navbar-link' %> |
     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
@@ -38,12 +39,10 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-  </nav>
+</nav>
 
   <body>
-
-
-
+    
   <%= yield %>
 
   </body>

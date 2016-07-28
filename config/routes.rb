@@ -7,10 +7,15 @@ Rails.application.routes.draw do
       resources :replies
 
     end
-    
+
   end
 
+  
 
+  # as :user do
+  #   get "/users/:user_id/posts", :to => 'posts#index', :as => :user_root
+  #
+  # end
   # get "users/" => "users#index"
   # get "users/new" => "users#new", as: :new_user
   # get "users/:id" => "users#show", as: :user

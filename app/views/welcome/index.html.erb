@@ -9,10 +9,10 @@
         <p>BLOCKED!? Share what you need help with to get realtime feedback from your community.</p>
              Easily send solutions to what's blocking others or opt to meet up and collaborate on the problem.</p>
             <div class="col-md-6">
-             <%= button_to "Sign Up", new_user_registration_path, class: "btn btn-info"%>
+             <%= button_to "Sign Up", new_user_registration_path, method: :get, class: "btn btn-info"%>
             </div>
             <div class="col-md-6">
-             <%= button_to "Sign In", new_user_session_path, class: "btn btn-info" %>
+             <%= button_to "Sign In", new_user_session_path, method: :get, class: "btn btn-info" %>
             </div>
         </p>
       </div>

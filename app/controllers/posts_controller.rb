@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_user, except: [:show]
 
   def index
+    @user = current_user
     @posts = Post.all
   end
 

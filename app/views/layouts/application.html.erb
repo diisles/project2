@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>HelpMe</title>
+    <link href='https://fonts.googleapis.com/css?family=Signika+Negative|Pathway+Gothic+One|Poiret+One|Yanone+Kaffeesatz|Montserrat' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
-  <nav class="navbar navbar-light" style="background-color: #B9C3C5;">
+  <nav class="navbar navbar-light" style="background-color: #ffffff;">
       <!-- <a class="navbar-brand" href="#">BLOCKERS</a> -->
       <%= link_to "BLOCKERS", root_path, :class => "navbar-brand" %>
       <ul class="nav navbar-nav">
@@ -27,7 +28,7 @@
      </li> -->
 
          <li class="nav-item">
-           <a class="nav-link" href="#">About</a>
+           <%= link_to "About", about_path, :class => "nav-link"  %>
          </li>
       </ul>
 

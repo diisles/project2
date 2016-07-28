@@ -9,10 +9,10 @@
         <%#= link_to "More Info", user_post_path(@user, post) %><br>
       <!-- </li> -->
     <%# end %>
-    <h3>Posts in your area</h3>
+    <h2>Posts in your area</h2>
 
     <% if @posts.where(location: @user.location).count == 0 %>
-      <h1>There are no posts here yet!</h1>
+      <h3>Be the first to post a Blocker in this area!</h3>
     <% else %>
       <% if (@user.location == "Santa Monica") %>
         <% then @posts.each do |post| %>
@@ -62,7 +62,7 @@
 
 
 </ul>
-<h1>Post a Blocker!</h1>
+<h2>Post a Blocker!</h2>
 
 <%= form_for [current_user, Post.new] do |f| %>
 

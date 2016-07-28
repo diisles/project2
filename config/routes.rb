@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users
-
+  get "/about" => "welcome#about"
   resources :users do
     resources :posts do
       resources :replies
-
     end
-
   end
 
-  
+
 
   # as :user do
   #   get "/users/:user_id/posts", :to => 'posts#index', :as => :user_root

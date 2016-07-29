@@ -1,4 +1,4 @@
-# Help.me
+# Blockers
 heroku link: https://murmuring-reef-55634.herokuapp.com/
 trello link: https://trello.com/b/YOPPDAi1/help-me
 

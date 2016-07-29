@@ -13,12 +13,12 @@
   <strong> <%= reply.user.name %> said: </strong><h4> <%= reply.content %></h4><br> <strong> IMAGE OF SOLUTION?: </strong> <%= reply.img %><br>
 <% end %><br>
 
+<%= link_to "Break this Blocker", new_user_post_reply_path(@user, @post) %>&nbsp; &nbsp; &nbsp;
 <% if current_user %>
   <% if current_user == @post.user %>
-  <%= link_to "Break this Blocker", new_user_post_reply_path(@user, @post) %>&nbsp; &nbsp; &nbsp;
     <%= link_to "Edit post", edit_user_post_path(@user, @post) %>&nbsp; &nbsp; &nbsp;
     <%= link_to "Back to the Blocker list", user_posts_path(@user) %>&nbsp; &nbsp; &nbsp;
-  
+
   <% end %>
 
   <!-- the code below allows user to go to post page with a "get help button" made it dryer by comment out. -->

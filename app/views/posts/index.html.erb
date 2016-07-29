@@ -9,30 +9,36 @@
         <%#= link_to "More Info", user_post_path(@user, post) %><br>
       <!-- </li> -->
     <%# end %>
-    <div class="panel-group">
+    <!-- <div class="panel-group">
       <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body"> -->
+
+        <div class="panel-primary">
+          <div class="panel-heading">
           <h2>Posts in your area</h2>
+        </div>
+        <div class="panel-body panel panel-default paddng">
+
           <ul>
           <% if @posts.where(location: @user.location).count == 0 %>
             <h3>Be the first to post a Blocker in this area!</h3>
           <% else %>
             <% @posts.where(location: @user.location).each do |post| %>
-              <p><strong>Title</strong> : <%= post.title %>  -
-                <strong> Description:</strong>
+              <p> <strong> USER: </strong><%= post.user.name %> - <strong>TITLE</strong> : <%= post.title %>  -
+                <strong> DESCRIPTION:</strong>
                 <%= post.description %> -
-                <strong> Area:</strong> - <%= post.location %> - <%= post.help_time %> -
-                <strong> Image of Problem: </strong> <%= post.img %> -
-                <strong> School: </strong> <%= post.user.school %> <br>
-                <strong>replies:</strong>  <%= post.replies.count %><br>
+                <strong> AREA:</strong> - <%= post.location %> -<STRONG> HELP TIME: <%= post.help_time %> -
+                <strong> PIC OF BLOCKER: </strong> <%= post.img %> -
+                <strong> SCHOOL: </strong> <%= post.user.school %> <br>
+                <strong>REPLIES:</strong>  <%= post.replies.count %><br>
                 <%= link_to "More Info", user_post_path(@user, post) %><br>
               </p>
             <% end %>
           <% end %>
         </ul>
-        </div>
       </div>
-    </div>
+      </div>
+    <!-- </div> -->
 
 
 

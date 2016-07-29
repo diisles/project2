@@ -1,21 +1,21 @@
-<h1>Become a Helper!</h1>
+<h1>Break a Blocker!</h1>
 
 <%= form_for [@user, @post, @reply] do |f| %>
 
     <div>
-        <%= f.label :content %>
-        <%= f.text_field :content %>
+        <%= f.label :content %><br>
+        <%= f.text_field :content %><br>
     </div>
 
     <div>
-        <%= f.label :img %>
-        <%= f.text_field :img %>
-    </div>
+        <%= f.label :img %><br>
+        <%= f.text_field :img %><br>
+    </div><br>
 
 
 
-    <%= f.submit  %>
+    <%= f.submit "Break this Block",class: "btn btn-info"  %>
 
-<% end %>
+<% end %><br>
 
-<%= link_to "Back to the Help list!", user_posts_path(@user) %>
+<%= link_to "Back to the Blocker list!", user_posts_path(@user) %>

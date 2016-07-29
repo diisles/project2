@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users
-  get "/about" => "welcome#about"
+  get "/about" => "welcome#about", as: :about
   resources :users do
     resources :posts do
       resources :replies

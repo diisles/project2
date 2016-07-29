@@ -9,7 +9,13 @@ Ruby/Rails/Bootstrap/Css/Html/
 Tackle my erd and wireframes so that I'm organized and can track each stage as development becomes more difficult when the app gains more functionality. 
 
 ##Install instructions:
-Type in correct Url then sign up for a account with your name, password, email. 
+git clone the repo
+bundle install
+rake db:create
+rake db:migrate 
+rake db:seed
+rails s
+local host 300
 
 ##Next Steps: 
 Add abilty to post images using Papaerclip and AWS. Build a complete user profile system. 
